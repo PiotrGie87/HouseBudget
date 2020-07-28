@@ -28,34 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cb = new System.Windows.Forms.ComboBox();
             this.cbDate = new System.Windows.Forms.ComboBox();
             this.cbTag = new System.Windows.Forms.ComboBox();
             this.lblTag = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
             this.btnLoadChart = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.btnChartClear = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
-            // chart1
+            // chart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(25, 79);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(563, 350);
-            this.chart1.TabIndex = 8;
-            this.chart1.Text = "chart1";
+            chartArea2.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart.Legends.Add(legend2);
+            this.chart.Location = new System.Drawing.Point(25, 79);
+            this.chart.Name = "chart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart.Series.Add(series2);
+            this.chart.Size = new System.Drawing.Size(563, 350);
+            this.chart.TabIndex = 8;
+            this.chart.Text = "chart1";
             // 
             // cb
             // 
@@ -101,29 +102,40 @@
             // 
             // btnLoadChart
             // 
-            this.btnLoadChart.Location = new System.Drawing.Point(64, 436);
+            this.btnLoadChart.Location = new System.Drawing.Point(608, 104);
             this.btnLoadChart.Name = "btnLoadChart";
-            this.btnLoadChart.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadChart.Size = new System.Drawing.Size(75, 111);
             this.btnLoadChart.TabIndex = 11;
-            this.btnLoadChart.Text = "button1";
+            this.btnLoadChart.Text = "Pokaż";
             this.btnLoadChart.UseVisualStyleBackColor = true;
+            this.btnLoadChart.Click += new System.EventHandler(this.btnLoadChart_Click);
+            // 
+            // btnChartClear
+            // 
+            this.btnChartClear.Location = new System.Drawing.Point(608, 233);
+            this.btnChartClear.Name = "btnChartClear";
+            this.btnChartClear.Size = new System.Drawing.Size(75, 111);
+            this.btnChartClear.TabIndex = 12;
+            this.btnChartClear.Text = "Wyczyść";
+            this.btnChartClear.UseVisualStyleBackColor = true;
             // 
             // Diagrams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 466);
+            this.ClientSize = new System.Drawing.Size(695, 466);
+            this.Controls.Add(this.btnChartClear);
             this.Controls.Add(this.btnLoadChart);
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lblTag);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chart);
             this.Controls.Add(this.cb);
             this.Controls.Add(this.cbDate);
             this.Controls.Add(this.cbTag);
             this.Name = "Diagrams";
             this.Text = "Diagrams";
             this.Load += new System.EventHandler(this.Diagrams_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,12 +143,13 @@
 
         #endregion
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.ComboBox cb;
         private System.Windows.Forms.ComboBox cbDate;
         private System.Windows.Forms.Label lblTag;
         private System.Windows.Forms.Label lblData;
         public System.Windows.Forms.ComboBox cbTag;
         private System.Windows.Forms.Button btnLoadChart;
+        private System.Windows.Forms.Button btnChartClear;
     }
 }

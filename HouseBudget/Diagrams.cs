@@ -21,5 +21,10 @@ namespace HouseBudget
         {
             
         }
+
+        private void btnLoadChart_Click(object sender, EventArgs e)
+        {
+           // chart.Series[cbTag.SelectedItem.ToString()].Points.AddXY
+        }
     }
 }

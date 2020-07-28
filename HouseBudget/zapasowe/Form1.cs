@@ -86,7 +86,16 @@ namespace HouseBudget
 
         }
 
-        private void SetNumberOfCosts()
+        public decimal HighestCost() // wyszykiwanie największego wydatku
+        {
+            decimal highest = 0; // pole do przechowywania wartości największego wydatku
+            int numberOfCosts = 0; // pole do przechowywania ilości wydatków w liście wydatków typu Cost
+            numberOfCosts = costsList.Count; 
+            decimal[] costsValues = new decimal[numberOfCosts]; // tabela o wielkości odpowiadającej ilości kosztów
+            return highest;
+        }
+
+        private void SetNumberOfCosts() //metoda ustawiająca ilość całkowitą kosztów w labelu 
         {
             int it;
             it = costsList.Count;
@@ -484,9 +493,9 @@ namespace HouseBudget
         {
             Diagrams diagram = new Diagrams();
 
-            LoadTags(diagram, cbTag);
+            LoadTags(diagram, cbTag); // zebranie informacji z listy obiektów typu Cost do wypełnienia combobox tag
 
-           
+
             diagram.ShowDialog();
             
 
@@ -499,11 +508,18 @@ namespace HouseBudget
             for (int i = 0; i < costsList.Count; i++)
             {
                 tag = costsList[i].TheTag.ToString();
-                diagram.cbTag.Items.Add(tag);
+
+                if (!(diagram.cbTag.Items.Contains(tag))) // warunek zabezpieczający przed dublowaniem tagów
+                {
+                    diagram.cbTag.Items.Add(tag);
+                }
+                
             }
 
-            // sprawić aby nie dublowało tagów
+            
         }
+
+
 
 
 
