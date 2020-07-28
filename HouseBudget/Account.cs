@@ -58,6 +58,10 @@ namespace HouseBudget
             Kalkulator kalkulator = new Kalkulator() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.panCalc.Controls.Add(kalkulator);
             kalkulator.Show();
+            Account accountForm = new Account();
+            this.Width = 489;
+            this.Height = 704;
+            
         }
     }
 }

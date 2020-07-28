@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,9 @@ namespace HouseBudget
         private decimal _amount;
         private int _id;
         private string _payed;
+        private string _tag;
+        private string _theData;
+        private string _tag2;
         
 
         //konstruktor
@@ -23,6 +27,9 @@ namespace HouseBudget
             this._amount = _amount;
             this._id = _id;
             this._payed = _payed;
+            this._tag2 = _tag2;
+            this._theData = _theData;
+
         }
 
         //właściwości
@@ -48,14 +55,34 @@ namespace HouseBudget
         public string IsPayed
         {
             get { return _payed; }
-            set { _payed = value; }
+            set { _payed = value;}
         }
 
-        //metoda przekazująca dne do listView
-
-        public void GetTheList(List<Cost> theList)
+        // własciwość zwracająca lub ustawiająca tag (jedzenie, media, raty, mieszkanie, samochód, przyjemności, edukacja, inne)
+        
+        public string TheTag
         {
-            
+            get { return _tag; }
+            set { _tag = value; }
+        }
+
+        //właściwość zwracająca datę
+
+        public string TheData
+        {
+            get { return _theData; }
+            set { _theData = value;}
+        }
+
+        //właściwość zwracająca drugi tag (opłata stała lub nieregularna)
+
+        public string SecondTag
+        {
+
+            get { return _tag2; }
+            set { _tag2 = value; }
+
+
         }
 
     }

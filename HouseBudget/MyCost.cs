@@ -22,5 +22,10 @@ namespace HouseBudget
             //konieczna metoda zmieniająca status wydatku na opłacony. 
             //dowiedzieć się jak dotrzec do poszczególnych kolumn w ListView i zmienić wartość
         }
+
+        private void lvCosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

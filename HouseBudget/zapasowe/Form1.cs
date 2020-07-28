@@ -61,6 +61,24 @@ namespace HouseBudget
                 //przy obsłudze buttona przekazującego nowy wydatek do kolekcji powinniśmy wpisać warunek. Działamy tylko wtedy gdy własciwości name i Amount nie są puste
             }
 
+            //pobieranie tagu
+
+            cost.TheTag = cbTag.SelectedItem.ToString();
+
+            //pobieranie daty
+
+            cost.TheData = dateTimePicker.Value.ToString();
+
+            //ustawianie tag 2 czyli statusy wydatek stały/wydatek niecykliczny
+            if(cbEveryMonth.Checked == false)
+            {
+                cost.SecondTag = "Niecykliczny";
+            }
+            else
+            {
+                cost.SecondTag = "Wydatek stały";
+            }
+
             cost.IsPayed = "NIE"; // domyślnie nowy obiekt typu Cost tworzony jest ze statusem nieopłacony
             
 
@@ -95,6 +113,13 @@ namespace HouseBudget
 
             //przekazywanie kwoty wydatku do ListView
             it.SubItems.Add(cost.Amount.ToString("c"));
+
+            //przekazywanie taga
+            it.SubItems.Add(cost.TheTag);
+
+            //przekazywanie daty
+
+            it.SubItems.Add(cost.TheData);
 
             if(cost.IsPayed == "TAK")
             {
@@ -198,6 +223,8 @@ namespace HouseBudget
                 ShowBalance(account1);
                 toolStripMenuItem1.Enabled = false;
             }
+
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e) //DOKOŃCZYC USUWNIE!!!
@@ -236,6 +263,16 @@ namespace HouseBudget
 
         private void showC_Click(object sender, EventArgs e)
         {
+            if(panDetails.Visible == false)
+            {
+                panDetails.Visible = true;
+            }
+            else
+            {
+                panDetails.Visible = false;
+            }
+                
+
             
         }
 
@@ -318,6 +355,9 @@ namespace HouseBudget
                     decimal amount;
                     string payed;
                     string saveCostLine;
+                    string tag;
+                    string tag2;
+                    string date;
                     
                     string mybalance = String.Format("<{0}<",account1.Balance.ToString());
 
@@ -329,7 +369,10 @@ namespace HouseBudget
                         name = costsList[i].Name;
                         amount = costsList[i].Amount;
                         payed = costsList[i].IsPayed;
-                        saveCostLine = String.Format("{0}|{1}|{2}|{3}|", id, name, amount, payed); // forma w jakiej będzie zapisany tekst w save file
+                        tag = costsList[i].TheTag;
+                        tag2 = costsList[i].SecondTag;
+                        date = costsList[i].TheData;
+                        saveCostLine = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}", id, name, amount, payed,tag,tag2,date); // forma w jakiej będzie zapisany tekst w save file
 
                         data.WriteLine(saveCostLine);
                          
@@ -363,11 +406,17 @@ namespace HouseBudget
             string name = fileArray[1]; // analogicznie nazwa
             decimal amount = Convert.ToDecimal(fileArray[2]); //analogicznie koszt
             string payed = fileArray[3]; // analogicznie info o tym czy jest zapłacone
+            string tag = fileArray[4]; //info o rodzaju płatności
+            string tag2 = fileArray[5]; // info o tagu 2 czy płatnośc cykliczna
+            string date = fileArray[6]; // zapisana data
             Cost cost = new Cost();
             cost.SetId = id;
             cost.Name = name;
             cost.Amount = amount;
             cost.IsPayed = payed;
+            cost.TheTag = tag;
+            cost.SecondTag = tag2;
+            cost.TheData = date;
             return cost;
         }
 
@@ -405,6 +454,13 @@ namespace HouseBudget
                             
                             account1.Balance = Convert.ToDecimal(balance[1]); // ustalanie wysokości salda
                             ShowBalance(account1); // wyświetlanie wysokości salda
+
+                            //po załadowaniu danych dodających do konta środki, opcja utworzenia konta zostaje usunięta
+
+                            if (account1.Balance != 0)
+                            {
+                                toolStripMenuItem1.Enabled = false;
+                            }
                         }
 
                         
@@ -423,5 +479,34 @@ namespace HouseBudget
 
 
         }
+
+        private void diagramyToolStripMenuItem_Click(object sender, EventArgs e) //otwarcie okna z diagramami
+        {
+            Diagrams diagram = new Diagrams();
+
+            LoadTags(diagram, cbTag);
+
+           
+            diagram.ShowDialog();
+            
+
+        }
+
+        private void LoadTags(Diagrams diagram,ComboBox combo) // zebranie informacji z listy obiektów typu Cost do wypełnienia combobox tag
+        {
+            string tag;
+
+            for (int i = 0; i < costsList.Count; i++)
+            {
+                tag = costsList[i].TheTag.ToString();
+                diagram.cbTag.Items.Add(tag);
+            }
+
+            // sprawić aby nie dublowało tagów
+        }
+
+
+
+
     }
 }

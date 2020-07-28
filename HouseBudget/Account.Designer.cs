@@ -105,16 +105,16 @@
             // 
             // panCalc
             // 
-            this.panCalc.Location = new System.Drawing.Point(46, 136);
+            this.panCalc.Location = new System.Drawing.Point(31, 136);
             this.panCalc.Name = "panCalc";
-            this.panCalc.Size = new System.Drawing.Size(375, 466);
+            this.panCalc.Size = new System.Drawing.Size(397, 495);
             this.panCalc.TabIndex = 6;
             // 
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 665);
+            this.ClientSize = new System.Drawing.Size(416, 145);
             this.Controls.Add(this.panCalc);
             this.Controls.Add(this.btnCalc);
             this.Controls.Add(this.btnOK);
@@ -124,6 +124,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
             this.Name = "Account";
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Account";
             this.Load += new System.EventHandler(this.Account_Load);
             this.ResumeLayout(false);
