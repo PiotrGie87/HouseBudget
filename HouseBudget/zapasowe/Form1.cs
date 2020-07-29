@@ -118,6 +118,46 @@ namespace HouseBudget
             return highest;
         }
 
+        public decimal LowerCost() // wyszukiwanie wydatku o najmniejszej wartości
+        {
+            decimal lowest = costsList[0].Amount;
+            decimal costAmount = 0;
+
+            for (int i = 0; i < costsList.Count; i++)
+            {
+                costAmount = costsList[i].Amount;
+
+                if(costAmount <= lowest)
+                {
+                    lowest = costAmount;
+                }
+            }
+            return lowest;
+
+        }
+
+        public decimal AverageCost()
+        {
+            decimal average = 0;
+            int numberOfCosts = costsList.Count; // ilość wszystkich wydatków
+            decimal everyCost = 0; // pole przechowujące wartosc wszystkich wydatków
+            decimal oneCost = 0;
+
+            for (int i = 0; i < costsList.Count; i++)
+            {
+                oneCost = costsList[i].Amount;
+                everyCost += oneCost;
+            }
+
+            average = everyCost / numberOfCosts; // łączna kwotra kosztów przez ich ilość daje nam średnią :)
+
+
+
+
+            return average;
+        }
+
+
         private decimal[] MoneyToTable() // metoda tworzoca tabelę jednowymiarową z wartości kwotowych obiektów typu Cost i zwracająca tabelę
         {
             int numberOfCosts = 0; // pole do przechowywania ilości wydatków w liście wydatków typu Cost
