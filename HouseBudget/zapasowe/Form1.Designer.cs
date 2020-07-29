@@ -69,6 +69,7 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.cbEveryMonth = new System.Windows.Forms.CheckBox();
+            this.btnkontrolny = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panDetails.SuspendLayout();
             this.SuspendLayout();
@@ -428,11 +429,22 @@
             this.cbEveryMonth.Text = "Wydatek cykliczny";
             this.cbEveryMonth.UseVisualStyleBackColor = true;
             // 
+            // btnkontrolny
+            // 
+            this.btnkontrolny.Location = new System.Drawing.Point(251, 75);
+            this.btnkontrolny.Name = "btnkontrolny";
+            this.btnkontrolny.Size = new System.Drawing.Size(75, 23);
+            this.btnkontrolny.TabIndex = 23;
+            this.btnkontrolny.Text = "kontrolny";
+            this.btnkontrolny.UseVisualStyleBackColor = true;
+            this.btnkontrolny.Click += new System.EventHandler(this.btnkontrolny_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 561);
+            this.Controls.Add(this.btnkontrolny);
             this.Controls.Add(this.cbEveryMonth);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker);
@@ -510,6 +522,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripMenuItem diagramyToolStripMenuItem;
         private System.Windows.Forms.CheckBox cbEveryMonth;
+        private System.Windows.Forms.Button btnkontrolny;
     }
 }
 

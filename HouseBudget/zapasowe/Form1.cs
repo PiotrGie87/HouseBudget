@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace HouseBudget
 {
@@ -31,6 +32,16 @@ namespace HouseBudget
 
              
 
+        }
+
+        private void CopyCostList(List<Cost> newCostList) // metoda kopiująca listę kosztów do drugiej listy kosztów
+        {
+            Cost cost = new Cost();
+            for (int i = 0; i < costsList.Count; i++)
+            {
+                cost = costsList[i];
+                newCostList.Add(cost);
+            }
         }
 
         
@@ -89,11 +100,40 @@ namespace HouseBudget
         public decimal HighestCost() // wyszykiwanie największego wydatku
         {
             decimal highest = 0; // pole do przechowywania wartości największego wydatku
-            int numberOfCosts = 0; // pole do przechowywania ilości wydatków w liście wydatków typu Cost
-            numberOfCosts = costsList.Count; 
-            decimal[] costsValues = new decimal[numberOfCosts]; // tabela o wielkości odpowiadającej ilości kosztów
+            
+            decimal costsAmount = 0; // pojedynczy koszt wydatku
+            
+
+            for (int i = 0; i < costsList.Count; i++)
+            {
+                costsAmount = costsList[i].Amount;
+
+                if(costsAmount > highest)
+                {
+                    highest = costsAmount;
+                }
+
+            }        
+            
             return highest;
         }
+
+        private decimal[] MoneyToTable() // metoda tworzoca tabelę jednowymiarową z wartości kwotowych obiektów typu Cost i zwracająca tabelę
+        {
+            int numberOfCosts = 0; // pole do przechowywania ilości wydatków w liście wydatków typu Cost
+            numberOfCosts = costsList.Count;
+            decimal costAmount = 0;
+            decimal[] costsValues = new decimal[numberOfCosts]; // tabela o wielkości odpowiadającej ilości kosztów
+
+            for (int i = 0; i < costsList.Count; i++) // iteracja po kolekcji obiektów typu Cost i dodawanie ich do tablicy
+            {
+                costAmount = costsList[i].Amount;
+                costsValues[i] = costAmount;
+            }
+
+            return costsValues;
+        }
+
 
         private void SetNumberOfCosts() //metoda ustawiająca ilość całkowitą kosztów w labelu 
         {
@@ -494,6 +534,7 @@ namespace HouseBudget
             Diagrams diagram = new Diagrams();
 
             LoadTags(diagram, cbTag); // zebranie informacji z listy obiektów typu Cost do wypełnienia combobox tag
+            CopyCostList(diagram.copyCostList); // skopiowanie obiektów Listy obiektów typu Cost
 
 
             diagram.ShowDialog();
@@ -503,7 +544,7 @@ namespace HouseBudget
 
         private void LoadTags(Diagrams diagram,ComboBox combo) // zebranie informacji z listy obiektów typu Cost do wypełnienia combobox tag
         {
-            string tag;
+            string tag; // pole przechowujący wartość pojedynczego taga
 
             for (int i = 0; i < costsList.Count; i++)
             {
@@ -519,10 +560,16 @@ namespace HouseBudget
             
         }
 
+        
 
+        
 
+        private void btnkontrolny_Click(object sender, EventArgs e)
+        {
+            decimal liczba;
+            liczba = HighestCost();
 
-
-
+            MessageBox.Show(liczba.ToString());
+        }
     }
 }
