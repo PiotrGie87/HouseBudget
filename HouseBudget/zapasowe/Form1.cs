@@ -558,6 +558,8 @@ namespace HouseBudget
 
                     }
 
+                    data.Close();
+
                 }
                 catch(IOException exception)
                 {
