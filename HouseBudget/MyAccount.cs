@@ -10,17 +10,24 @@ namespace HouseBudget
     {
         //statyczne pole salda
         private static decimal balance = 0;
-
-        //konstruktor przyjmujący poczatkową wartość salda - na razie go nie ma
+        private static decimal openBalance;
 
         
 
-        // właściwość tylko do odczytu zwracająca aktualną wartość salda
+        
+
+        // właściwość  zwracająca lub ustawiająca aktualną wartość salda
 
         public decimal Balance
         {
             get { return balance; }
             set { balance = value; }
+        }
+
+        //Właściwość tylko do odczytu zwracająca początkową wartość salda
+        public decimal OpenBalance
+        {
+            get { return openBalance; }
         }
 
         //metoda dodajaca środki do salda

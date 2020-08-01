@@ -33,7 +33,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cb = new System.Windows.Forms.ComboBox();
-            this.cbDate = new System.Windows.Forms.ComboBox();
+            this.cbAnotherData = new System.Windows.Forms.ComboBox();
             this.cbTag = new System.Windows.Forms.ComboBox();
             this.lblTag = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
@@ -66,13 +66,18 @@
             this.cb.Size = new System.Drawing.Size(177, 21);
             this.cb.TabIndex = 7;
             // 
-            // cbDate
+            // cbAnotherData
             // 
-            this.cbDate.FormattingEnabled = true;
-            this.cbDate.Location = new System.Drawing.Point(206, 52);
-            this.cbDate.Name = "cbDate";
-            this.cbDate.Size = new System.Drawing.Size(194, 21);
-            this.cbDate.TabIndex = 6;
+            this.cbAnotherData.FormattingEnabled = true;
+            this.cbAnotherData.Items.AddRange(new object[] {
+            "Koszt",
+            "Budżet",
+            "Stosunek procentowy",
+            "Data"});
+            this.cbAnotherData.Location = new System.Drawing.Point(206, 52);
+            this.cbAnotherData.Name = "cbAnotherData";
+            this.cbAnotherData.Size = new System.Drawing.Size(194, 21);
+            this.cbAnotherData.TabIndex = 6;
             // 
             // cbTag
             // 
@@ -118,6 +123,7 @@
             this.btnChartClear.TabIndex = 12;
             this.btnChartClear.Text = "Wyczyść";
             this.btnChartClear.UseVisualStyleBackColor = true;
+            this.btnChartClear.Click += new System.EventHandler(this.btnChartClear_Click);
             // 
             // Diagrams
             // 
@@ -130,7 +136,7 @@
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.chart);
             this.Controls.Add(this.cb);
-            this.Controls.Add(this.cbDate);
+            this.Controls.Add(this.cbAnotherData);
             this.Controls.Add(this.cbTag);
             this.Name = "Diagrams";
             this.Text = "Diagrams";
@@ -145,7 +151,7 @@
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.ComboBox cb;
-        private System.Windows.Forms.ComboBox cbDate;
+        private System.Windows.Forms.ComboBox cbAnotherData;
         private System.Windows.Forms.Label lblTag;
         private System.Windows.Forms.Label lblData;
         public System.Windows.Forms.ComboBox cbTag;

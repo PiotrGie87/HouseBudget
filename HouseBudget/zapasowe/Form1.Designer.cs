@@ -57,9 +57,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panDetails = new System.Windows.Forms.Panel();
-            this.lblPayed = new System.Windows.Forms.Label();
+            this.lblLowest = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblNotPayed = new System.Windows.Forms.Label();
+            this.lblHighest = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblLbCosts = new System.Windows.Forms.Label();
             this.lblLbPayedCosts = new System.Windows.Forms.Label();
@@ -70,6 +70,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbEveryMonth = new System.Windows.Forms.CheckBox();
             this.btnkontrolny = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblAverage = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panDetails.SuspendLayout();
             this.SuspendLayout();
@@ -312,51 +314,53 @@
             // 
             // panDetails
             // 
-            this.panDetails.Controls.Add(this.lblPayed);
+            this.panDetails.Controls.Add(this.lblAverage);
+            this.panDetails.Controls.Add(this.label7);
+            this.panDetails.Controls.Add(this.lblLowest);
             this.panDetails.Controls.Add(this.label8);
-            this.panDetails.Controls.Add(this.lblNotPayed);
+            this.panDetails.Controls.Add(this.lblHighest);
             this.panDetails.Controls.Add(this.label6);
             this.panDetails.Controls.Add(this.label3);
             this.panDetails.Controls.Add(this.lblAllCosts);
             this.panDetails.Location = new System.Drawing.Point(389, 27);
             this.panDetails.Name = "panDetails";
-            this.panDetails.Size = new System.Drawing.Size(401, 72);
+            this.panDetails.Size = new System.Drawing.Size(401, 96);
             this.panDetails.TabIndex = 15;
             this.panDetails.Visible = false;
             // 
-            // lblPayed
+            // lblLowest
             // 
-            this.lblPayed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblPayed.Location = new System.Drawing.Point(185, 45);
-            this.lblPayed.Name = "lblPayed";
-            this.lblPayed.Size = new System.Drawing.Size(45, 13);
-            this.lblPayed.TabIndex = 15;
+            this.lblLowest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLowest.Location = new System.Drawing.Point(185, 40);
+            this.lblLowest.Name = "lblLowest";
+            this.lblLowest.Size = new System.Drawing.Size(45, 13);
+            this.lblLowest.TabIndex = 15;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 45);
+            this.label8.Location = new System.Drawing.Point(6, 42);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(153, 13);
+            this.label8.Size = new System.Drawing.Size(123, 13);
             this.label8.TabIndex = 14;
-            this.label8.Text = "LICZBA WYD. OPŁACONYCH";
+            this.label8.Text = "NAJNIŻSZY WYDATEK";
             // 
-            // lblNotPayed
+            // lblHighest
             // 
-            this.lblNotPayed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblNotPayed.Location = new System.Drawing.Point(185, 28);
-            this.lblNotPayed.Name = "lblNotPayed";
-            this.lblNotPayed.Size = new System.Drawing.Size(45, 13);
-            this.lblNotPayed.TabIndex = 13;
+            this.lblHighest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblHighest.Location = new System.Drawing.Point(185, 24);
+            this.lblHighest.Name = "lblHighest";
+            this.lblHighest.Size = new System.Drawing.Size(45, 13);
+            this.lblHighest.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 28);
+            this.label6.Location = new System.Drawing.Point(6, 26);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 13);
+            this.label6.Size = new System.Drawing.Size(130, 13);
             this.label6.TabIndex = 12;
-            this.label6.Text = "LICZBA WYD. NIEOPŁACONYCH";
+            this.label6.Text = "NAJWYŻSZY WYDATEK";
             // 
             // lblLbCosts
             // 
@@ -445,6 +449,23 @@
             this.btnkontrolny.UseVisualStyleBackColor = true;
             this.btnkontrolny.Click += new System.EventHandler(this.btnkontrolny_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 58);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(172, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "ŚREDNIA WIELKOŚĆ WYDATKU";
+            // 
+            // lblAverage
+            // 
+            this.lblAverage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblAverage.Location = new System.Drawing.Point(185, 56);
+            this.lblAverage.Name = "lblAverage";
+            this.lblAverage.Size = new System.Drawing.Size(45, 15);
+            this.lblAverage.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,13 +543,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblPayed;
+        private System.Windows.Forms.Label lblLowest;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblNotPayed;
+        private System.Windows.Forms.Label lblHighest;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripMenuItem diagramyToolStripMenuItem;
         private System.Windows.Forms.CheckBox cbEveryMonth;
         private System.Windows.Forms.Button btnkontrolny;
+        private System.Windows.Forms.Label lblAverage;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -352,6 +352,10 @@ namespace HouseBudget
 
         private void showC_Click(object sender, EventArgs e)
         {
+            lblHighest.Text = HighestCost().ToString();
+            lblLowest.Text = LowerCost().ToString();
+            lblAverage.Text = AverageCost().ToString();
+
             if(panDetails.Visible == false)
             {
                 panDetails.Visible = true;
@@ -431,7 +435,7 @@ namespace HouseBudget
                 }
                 else
                 {
-                    mode = FileMode.Create; //nie mam pewności czy opcja create jest prawidłowa w momencie gdy plik już istnieje
+                    mode = FileMode.Create; 
                 }
 
                 try
@@ -449,6 +453,7 @@ namespace HouseBudget
                     string date;
                     
                     string mybalance = String.Format("<{0}<",account1.Balance.ToString());
+                    string openBalance = String.Format(">{0}>", account.Acc.ToString());
 
                    
 
@@ -468,6 +473,7 @@ namespace HouseBudget
                     }
 
                     data.WriteLine(mybalance); // zapis informacji o stanie konta (saldzie)
+                    data.WriteLine(openBalance); // zapis informacji o początkowym saldzie na koncie
 
 
 
@@ -550,6 +556,10 @@ namespace HouseBudget
                             {
                                 toolStripMenuItem1.Enabled = false;
                             }
+                        }else if (oneLine.Contains(">"))
+                        {
+                            string[] openBalance = oneLine.Split('>');
+                            account.Acc = Convert.ToDecimal(openBalance[1]);
                         }
 
                         
@@ -577,6 +587,7 @@ namespace HouseBudget
 
             LoadTags(diagram, cbTag); // zebranie informacji z listy obiektów typu Cost do wypełnienia combobox tag
             CopyCostList(diagram.copyCostList); // skopiowanie obiektów Listy obiektów typu Cost
+            diagram.openBalance = account.Acc;
 
 
             diagram.ShowDialog();
@@ -608,10 +619,9 @@ namespace HouseBudget
 
         private void btnkontrolny_Click(object sender, EventArgs e)
         {
-            decimal liczba;
-            liczba = HighestCost();
+           
 
-            MessageBox.Show(liczba.ToString());
+            MessageBox.Show(account.Acc.ToString());
         }
     }
 }

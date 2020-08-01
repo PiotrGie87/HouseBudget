@@ -23,6 +23,7 @@ namespace HouseBudget
         public decimal Acc //właściwość zwracająca wartość środków początkowych na koncie
         {
             get { return _acc; }
+            set { _acc = value; }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
