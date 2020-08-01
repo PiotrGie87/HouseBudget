@@ -19,7 +19,7 @@ namespace HouseBudget
         MyCost form2;
         Account account;
         MyAccount account1;
-        string listDetails = "{0,-10}{1,-50}{2,-30}";
+        string listDetails = "{0,-3}{1,-15}{2,25}";
 
         public Form1()
         {

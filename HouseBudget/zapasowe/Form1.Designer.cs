@@ -108,19 +108,25 @@
             // 
             // lbCosts
             // 
+            this.lbCosts.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbCosts.FormattingEnabled = true;
+            this.lbCosts.ItemHeight = 14;
             this.lbCosts.Location = new System.Drawing.Point(46, 165);
+            this.lbCosts.MultiColumn = true;
             this.lbCosts.Name = "lbCosts";
             this.lbCosts.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbCosts.Size = new System.Drawing.Size(326, 238);
+            this.lbCosts.Size = new System.Drawing.Size(326, 228);
+            this.lbCosts.Sorted = true;
             this.lbCosts.TabIndex = 4;
             // 
             // lbPayedCost
             // 
+            this.lbPayedCost.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbPayedCost.FormattingEnabled = true;
+            this.lbPayedCost.ItemHeight = 14;
             this.lbPayedCost.Location = new System.Drawing.Point(464, 165);
             this.lbPayedCost.Name = "lbPayedCost";
-            this.lbPayedCost.Size = new System.Drawing.Size(326, 238);
+            this.lbPayedCost.Size = new System.Drawing.Size(326, 228);
             this.lbPayedCost.TabIndex = 5;
             // 
             // btnAdd
@@ -285,7 +291,7 @@
             // 
             // btnPay
             // 
-            this.btnPay.Location = new System.Drawing.Point(389, 207);
+            this.btnPay.Location = new System.Drawing.Point(389, 193);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(60, 171);
             this.btnPay.TabIndex = 14;
