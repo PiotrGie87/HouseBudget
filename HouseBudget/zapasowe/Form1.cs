@@ -588,6 +588,7 @@ namespace HouseBudget
             LoadTags(diagram, cbTag); // zebranie informacji z listy obiektów typu Cost do wypełnienia combobox tag
             CopyCostList(diagram.copyCostList); // skopiowanie obiektów Listy obiektów typu Cost
             diagram.openBalance = account.Acc;
+            diagram.chart.Series.RemoveAt(0);
 
 
             diagram.ShowDialog();

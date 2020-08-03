@@ -12,7 +12,8 @@ namespace HouseBudget
 {
     public partial class Diagrams : Form
     {
-        public List<Cost> copyCostList = new List<Cost>();
+        public List<Cost> copyCostList = new List<Cost>(); // kopia listy obiektów typu Cost zapełniająca się wraz z otwarciem niniejszej formy. 
+                                                           //Odpowiednia  metoda znajduje się w Form1
         public decimal openBalance;
         
         public Diagrams()
@@ -36,9 +37,9 @@ namespace HouseBudget
             tag = cbTag.SelectedItem.ToString(); // tag równy wybranemu przez nas w comboboxie elementowi
 
 
-            chart.Series.RemoveAt(0); //czyszczenie obecej serii //SPRAWIA PROBLEM PRZY USUWANIU PRZYCISKIEM USUŃ
+           
             chart.Series.Add(tag); // dodawanie serii zgodnej z wybranym tagiem
-            chart.Series[tag].Points.Clear(); // czyszczenie punktów na charcie
+            //chart.Series[tag].Points.Clear(); // czyszczenie punktów na charcie WYKORZYSTAĆ PRZY CZYSZCZENIU TABELI
 
 
 
@@ -57,6 +58,49 @@ namespace HouseBudget
 
         }
 
+
+
+        private decimal WholeTagCost(string tag) //. metoda porównująca łączna wartość wydaną na wydatki z danego taga
+        {
+            decimal wholeTagCost = 0;
+            decimal oneCost;
+
+            for (int i = 0; i < copyCostList.Count; i++)
+            {
+                if(copyCostList[i].TheTag == tag)
+                {
+                    oneCost = copyCostList[i].Amount;
+                    wholeTagCost += oneCost;
+                }
+                
+
+                
+            }
+            return wholeTagCost;
+            
+
+        }
+
+        private void SetTwoElChart() // metoda porówbnująca wysokość kosztów całego taga z początkowym budżetem
+        {
+            string tag = cbTag.Text;
+            decimal wholeTagCost = WholeTagCost(tag);
+            decimal budget = openBalance;
+            string nameOfTheBudget = String.Format("{0} {1}", cbAnotherData.SelectedItem.ToString(), openBalance);
+
+            tag = String.Format("{0} {1}", cbTag.Text, wholeTagCost);
+
+
+            
+
+            chart.Series.Add(tag);
+            chart.Series[tag].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie; 
+
+            chart.Series[tag].Points.AddXY(tag, wholeTagCost);
+            chart.Series[tag].Points.AddXY(nameOfTheBudget, budget);
+            
+        }
+
         private void btnLoadChart_Click(object sender, EventArgs e)
         {
             Button button = new Button();
@@ -67,14 +111,10 @@ namespace HouseBudget
             {
                 SetChart();
             }
-            else if(cbTag.SelectedItem != null && cbAnotherData.SelectedItem == "Budżet") // OGARNĄĆ DLACZEGO BUDŻET POJAWIA SIĘ JAKO DRUGI
+            else if(cbTag.SelectedItem != null && cbAnotherData.SelectedItem == "Budżet") 
             {
-                decimal budget;
-                budget = openBalance;
-                string nameOfTheBudget = cbAnotherData.SelectedItem.ToString();
-                SetChart();
-                chart.Series.Add(nameOfTheBudget);
-                chart.Series[nameOfTheBudget].Points.AddXY("Budżet", budget);
+                SetTwoElChart();
+                
 
             }
             else
@@ -88,8 +128,8 @@ namespace HouseBudget
         private void btnChartClear_Click(object sender, EventArgs e)
         {
             chart.Series.Clear();
-            cbTag.SelectedText = null; // wciąz się znajdują na widoku
-            cbAnotherData.SelectedText = null; // wciąż się znajdują na widoku  //DO POPRAWY
+            //cbTag.SelectedText = ""; // wciąz się znajdują na widoku
+            //cbAnotherData.SelectedText = ""; // wciąż się znajdują na widoku  //DO POPRAWY
             btnLoadChart.Enabled = true;
         }
     }
