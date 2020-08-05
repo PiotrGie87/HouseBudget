@@ -354,7 +354,13 @@ namespace HouseBudget
 
                 SetNumberOfCosts(); //ustawienie całkowitej liczby wydatków
 
-                
+                lblHighest.Text = HighestCost().ToString();
+                lblLowest.Text = LowerCost().ToString();
+                lblAverage.Text = AverageCost().ToString();
+
+
+
+
             }
             else
             {
@@ -377,16 +383,21 @@ namespace HouseBudget
 
         private void showC_Click(object sender, EventArgs e)
         {
+            Button butt = new Button();
+            butt = (Button)sender;
+
             lblHighest.Text = HighestCost().ToString();
             lblLowest.Text = LowerCost().ToString();
             lblAverage.Text = AverageCost().ToString();
 
             if(panDetails.Visible == false)
             {
+                butt.Text = "Ukryj szczegóły";
                 panDetails.Visible = true;
             }
             else
             {
+                butt.Text = "Pokaż szczegóły";
                 panDetails.Visible = false;
             }
                 
