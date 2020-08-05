@@ -44,11 +44,11 @@
             this.zakończToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mojeKontoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.wydatkiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mojeWydatkiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diagramyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mojeOszczędnościToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.lblAllCosts = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -72,7 +72,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbEveryMonth = new System.Windows.Forms.CheckBox();
             this.btnkontrolny = new System.Windows.Forms.Button();
-            this.mojeOszczędnościToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panDetails.SuspendLayout();
             this.SuspendLayout();
@@ -206,7 +205,6 @@
             // 
             this.mojeKontoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.toolStripMenuItem3,
             this.toolStripMenuItem2});
             this.mojeKontoToolStripMenuItem.Name = "mojeKontoToolStripMenuItem";
             this.mojeKontoToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
@@ -220,17 +218,12 @@
             this.toolStripMenuItem1.Text = "Utwórz konto";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click_1);
             // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem3.Text = "Usuń konto";
-            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "Zarządzaj kontem";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // wydatkiToolStripMenuItem
             // 
@@ -255,6 +248,12 @@
             this.diagramyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.diagramyToolStripMenuItem.Text = "Diagramy";
             this.diagramyToolStripMenuItem.Click += new System.EventHandler(this.diagramyToolStripMenuItem_Click);
+            // 
+            // mojeOszczędnościToolStripMenuItem
+            // 
+            this.mojeOszczędnościToolStripMenuItem.Name = "mojeOszczędnościToolStripMenuItem";
+            this.mojeOszczędnościToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mojeOszczędnościToolStripMenuItem.Text = "Moje Oszczędności";
             // 
             // label3
             // 
@@ -468,12 +467,6 @@
             this.btnkontrolny.UseVisualStyleBackColor = true;
             this.btnkontrolny.Click += new System.EventHandler(this.btnkontrolny_Click);
             // 
-            // mojeOszczędnościToolStripMenuItem
-            // 
-            this.mojeOszczędnościToolStripMenuItem.Name = "mojeOszczędnościToolStripMenuItem";
-            this.mojeOszczędnościToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.mojeOszczędnościToolStripMenuItem.Text = "Moje Oszczędności";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,7 +520,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mojeKontoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         public System.Windows.Forms.Label lblBalanceValue;
         private System.Windows.Forms.Label label3;

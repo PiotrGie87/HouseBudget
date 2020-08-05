@@ -28,12 +28,26 @@ namespace HouseBudget
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
-            _acc = Convert.ToDecimal(tbCash.Text); //przypisanie polu wpisanej przez użytkownika wartości konta
-            MyAccount konto = new MyAccount(); //nowy obiekt MyAccount
-            konto.Balance = _acc; //przypisanie poprzez właściwosć Balance wartości wpisanej przez użytkownika
-            lblSaldo.Text = konto.Balance.ToString("c"); // wyświetlenie tej wartości w labelce
-            tbCash.Text = ""; // wyczyszczenie textboxa
+            if(lblSaldo.Text == ",,,,,,,,,,,,,,,,,,,,,,,,,")
+            {
+                _acc = Convert.ToDecimal(tbCash.Text); //przypisanie polu wpisanej przez użytkownika wartości konta
+                MyAccount konto = new MyAccount(); //nowy obiekt MyAccount
+                konto.Balance = _acc; //przypisanie poprzez właściwosć Balance wartości wpisanej przez użytkownika
+                lblSaldo.Text = konto.Balance.ToString("c"); // wyświetlenie tej wartości w labelce
+                tbCash.Text = ""; // wyczyszczenie textboxa
+            }
+            else
+            {
+                decimal addCash;
+                addCash = Convert.ToDecimal(tbCash.Text);
+                MyAccount konto = new MyAccount();
+                konto.Balance = konto.Balance + addCash;
+                lblSaldo.Text = konto.Balance.ToString("c");
+                tbCash.Text = "";
+
+
+            }
+           
 
             
 

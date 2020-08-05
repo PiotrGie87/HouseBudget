@@ -69,28 +69,37 @@ namespace HouseBudget
                 MessageBox.Show("Podaj poprawną cenę");
                 tbAmount.Text = "";
 
-                //przy obsłudze buttona przekazującego nowy wydatek do kolekcji powinniśmy wpisać warunek. Działamy tylko wtedy gdy własciwości name i Amount nie są puste
+                
             }
 
-            //pobieranie tagu
-
-            cost.TheTag = cbTag.SelectedItem.ToString();
-
-            //pobieranie daty
-
-            cost.TheData = dateTimePicker.Value.ToString();
-
-            //ustawianie tag 2 czyli statusy wydatek stały/wydatek niecykliczny
-            if(cbEveryMonth.Checked == false)
+            if(cbTag.SelectedItem != null)
             {
-                cost.SecondTag = "Niecykliczny";
+                //pobieranie tagu
+
+                cost.TheTag = cbTag.SelectedItem.ToString();
+
+                //pobieranie daty
+
+                cost.TheData = dateTimePicker.Value.ToString();
+
+                //ustawianie tag 2 czyli statusy wydatek stały/wydatek niecykliczny
+                if (cbEveryMonth.Checked == false)
+                {
+                    cost.SecondTag = "Niecykliczny";
+                }
+                else
+                {
+                    cost.SecondTag = "Wydatek stały";
+                }
+
+                cost.IsPayed = "NIE"; // domyślnie nowy obiekt typu Cost tworzony jest ze statusem nieopłacony
             }
             else
             {
-                cost.SecondTag = "Wydatek stały";
+                MessageBox.Show("Prosze wskazać rodzaj wydatku");
             }
 
-            cost.IsPayed = "NIE"; // domyślnie nowy obiekt typu Cost tworzony jest ze statusem nieopłacony
+            
             
 
             
@@ -256,32 +265,48 @@ namespace HouseBudget
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //Utworzenie obiektu typu Cost
+            if((tbCost.Text != "" && tbAmount.Text != "") && cbTag.SelectedItem != null)
+                
+            {
+                //Utworzenie obiektu typu Cost
 
-            Cost myCost = new Cost();
+                Cost myCost = new Cost();
 
-            //pobranie danych o wydatku
+                //pobranie danych o wydatku
 
-            AddCost(myCost);
+                AddCost(myCost);
 
-            // Dodawanie OBIEKTÓW TYPU COST do Listy
+                // Dodawanie OBIEKTÓW TYPU COST do Listy
 
-            costsList.Add(myCost);
+                costsList.Add(myCost);
 
-            // przekazywanie wydatku do ListView w formie MyCost
+                // przekazywanie wydatku do ListView w formie MyCost
 
-            PassCost(myCost);
+                PassCost(myCost);
 
+
+
+                //................... wyczyszczenie text boxów
+                tbAmount.Clear();
+                tbCost.Clear();
+            }
+            else
+            {
+                if(tbCost.Text == "")
+                {
+                    MessageBox.Show("Proszę wprowadzić nazwę wydatku");
+                }
+                if(tbAmount.Text == "")
+                {
+                    MessageBox.Show("Proszę wprowadzić wartość wydatku w złotówkach");
+                }
+                if(cbTag.SelectedItem == null)
+                {
+                    MessageBox.Show("Proszę podać rodzaj wydatku");
+                }
+                
+            }
             
-
-            
-
-           
-            // FORMATOWANIE LIST BOXA
-
-            //................... wyczyszczenie text boxów
-            tbAmount.Clear();
-            tbCost.Clear();
             
         }
 
@@ -623,6 +648,15 @@ namespace HouseBudget
            
 
             MessageBox.Show(account.Acc.ToString());
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            account.lblSaldo.Text = account1.Balance.ToString();
+            if(account.ShowDialog() == DialogResult.OK)
+            {
+                ShowBalance(account1);
+            }
         }
     }
 }

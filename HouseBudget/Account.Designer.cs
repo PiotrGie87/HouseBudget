@@ -139,9 +139,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbCash;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblSaldo;
         public System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCalc;
         private System.Windows.Forms.Panel panCalc;
+        public System.Windows.Forms.Label lblSaldo;
     }
 }
