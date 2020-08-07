@@ -71,7 +71,6 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.cbEveryMonth = new System.Windows.Forms.CheckBox();
-            this.btnkontrolny = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panDetails.SuspendLayout();
             this.SuspendLayout();
@@ -133,6 +132,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Enabled = false;
             this.btnAdd.Location = new System.Drawing.Point(464, 429);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(162, 99);
@@ -152,11 +152,13 @@
             // 
             // lblBalanceValue
             // 
+            this.lblBalanceValue.BackColor = System.Drawing.Color.Red;
             this.lblBalanceValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblBalanceValue.Location = new System.Drawing.Point(111, 50);
             this.lblBalanceValue.Name = "lblBalanceValue";
-            this.lblBalanceValue.Size = new System.Drawing.Size(100, 23);
+            this.lblBalanceValue.Size = new System.Drawing.Size(113, 23);
             this.lblBalanceValue.TabIndex = 8;
+            this.lblBalanceValue.Text = "UTWÓRZ KONTO!";
             // 
             // menuStrip1
             // 
@@ -183,21 +185,21 @@
             // otwórzToolStripMenuItem
             // 
             this.otwórzToolStripMenuItem.Name = "otwórzToolStripMenuItem";
-            this.otwórzToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otwórzToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.otwórzToolStripMenuItem.Text = "Otwórz";
             this.otwórzToolStripMenuItem.Click += new System.EventHandler(this.otwórzToolStripMenuItem_Click);
             // 
             // zapiszToolStripMenuItem
             // 
             this.zapiszToolStripMenuItem.Name = "zapiszToolStripMenuItem";
-            this.zapiszToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zapiszToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.zapiszToolStripMenuItem.Text = "Zapisz";
             this.zapiszToolStripMenuItem.Click += new System.EventHandler(this.zapiszToolStripMenuItem_Click);
             // 
             // zakończToolStripMenuItem
             // 
             this.zakończToolStripMenuItem.Name = "zakończToolStripMenuItem";
-            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zakończToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.zakończToolStripMenuItem.Text = "Zakończ";
             this.zakończToolStripMenuItem.Click += new System.EventHandler(this.zakończToolStripMenuItem_Click);
             // 
@@ -214,14 +216,14 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
             this.toolStripMenuItem1.Text = "Utwórz konto";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click_1);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(167, 22);
             this.toolStripMenuItem2.Text = "Zarządzaj kontem";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -234,16 +236,18 @@
             this.wydatkiToolStripMenuItem.Name = "wydatkiToolStripMenuItem";
             this.wydatkiToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.wydatkiToolStripMenuItem.Text = "Wydatki";
+            this.wydatkiToolStripMenuItem.Click += new System.EventHandler(this.wydatkiToolStripMenuItem_Click);
             // 
             // mojeWydatkiToolStripMenuItem
             // 
             this.mojeWydatkiToolStripMenuItem.Name = "mojeWydatkiToolStripMenuItem";
-            this.mojeWydatkiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mojeWydatkiToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.mojeWydatkiToolStripMenuItem.Text = "Moje Wydatki";
             this.mojeWydatkiToolStripMenuItem.Click += new System.EventHandler(this.mojeWydatkiToolStripMenuItem_Click);
             // 
             // diagramyToolStripMenuItem
             // 
+            this.diagramyToolStripMenuItem.Enabled = false;
             this.diagramyToolStripMenuItem.Name = "diagramyToolStripMenuItem";
             this.diagramyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.diagramyToolStripMenuItem.Text = "Diagramy";
@@ -251,6 +255,7 @@
             // 
             // mojeOszczędnościToolStripMenuItem
             // 
+            this.mojeOszczędnościToolStripMenuItem.Enabled = false;
             this.mojeOszczędnościToolStripMenuItem.Name = "mojeOszczędnościToolStripMenuItem";
             this.mojeOszczędnościToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mojeOszczędnościToolStripMenuItem.Text = "Moje Oszczędności";
@@ -383,7 +388,7 @@
             // lblLbCosts
             // 
             this.lblLbCosts.AutoSize = true;
-            this.lblLbCosts.Location = new System.Drawing.Point(145, 126);
+            this.lblLbCosts.Location = new System.Drawing.Point(145, 149);
             this.lblLbCosts.Name = "lblLbCosts";
             this.lblLbCosts.Size = new System.Drawing.Size(111, 13);
             this.lblLbCosts.TabIndex = 16;
@@ -392,7 +397,7 @@
             // lblLbPayedCosts
             // 
             this.lblLbPayedCosts.AutoSize = true;
-            this.lblLbPayedCosts.Location = new System.Drawing.Point(571, 126);
+            this.lblLbPayedCosts.Location = new System.Drawing.Point(581, 149);
             this.lblLbPayedCosts.Name = "lblLbPayedCosts";
             this.lblLbPayedCosts.Size = new System.Drawing.Size(97, 13);
             this.lblLbPayedCosts.TabIndex = 17;
@@ -457,22 +462,11 @@
             this.cbEveryMonth.Text = "Wydatek cykliczny";
             this.cbEveryMonth.UseVisualStyleBackColor = true;
             // 
-            // btnkontrolny
-            // 
-            this.btnkontrolny.Location = new System.Drawing.Point(251, 75);
-            this.btnkontrolny.Name = "btnkontrolny";
-            this.btnkontrolny.Size = new System.Drawing.Size(75, 23);
-            this.btnkontrolny.TabIndex = 23;
-            this.btnkontrolny.Text = "kontrolny";
-            this.btnkontrolny.UseVisualStyleBackColor = true;
-            this.btnkontrolny.Click += new System.EventHandler(this.btnkontrolny_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 561);
-            this.Controls.Add(this.btnkontrolny);
             this.Controls.Add(this.cbEveryMonth);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker);
@@ -549,7 +543,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripMenuItem diagramyToolStripMenuItem;
         private System.Windows.Forms.CheckBox cbEveryMonth;
-        private System.Windows.Forms.Button btnkontrolny;
         private System.Windows.Forms.Label lblAverage;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolStripMenuItem mojeOszczędnościToolStripMenuItem;

@@ -32,7 +32,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.cb = new System.Windows.Forms.ComboBox();
             this.cbAnotherData = new System.Windows.Forms.ComboBox();
             this.cbTag = new System.Windows.Forms.ComboBox();
             this.lblTag = new System.Windows.Forms.Label();
@@ -58,22 +57,13 @@
             this.chart.TabIndex = 8;
             this.chart.Text = "chart1";
             // 
-            // cb
-            // 
-            this.cb.FormattingEnabled = true;
-            this.cb.Location = new System.Drawing.Point(411, 52);
-            this.cb.Name = "cb";
-            this.cb.Size = new System.Drawing.Size(177, 21);
-            this.cb.TabIndex = 7;
-            // 
             // cbAnotherData
             // 
             this.cbAnotherData.FormattingEnabled = true;
             this.cbAnotherData.Items.AddRange(new object[] {
             "Koszt",
             "Budżet",
-            "Stosunek procentowy",
-            "Data"});
+            ""});
             this.cbAnotherData.Location = new System.Drawing.Point(206, 52);
             this.cbAnotherData.Name = "cbAnotherData";
             this.cbAnotherData.Size = new System.Drawing.Size(194, 21);
@@ -135,7 +125,6 @@
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.chart);
-            this.Controls.Add(this.cb);
             this.Controls.Add(this.cbAnotherData);
             this.Controls.Add(this.cbTag);
             this.Name = "Diagrams";
@@ -148,7 +137,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cb;
         private System.Windows.Forms.ComboBox cbAnotherData;
         private System.Windows.Forms.Label lblTag;
         private System.Windows.Forms.Label lblData;

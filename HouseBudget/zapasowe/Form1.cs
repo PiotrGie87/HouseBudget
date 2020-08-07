@@ -289,6 +289,7 @@ namespace HouseBudget
                 //................... wyczyszczenie text boxów
                 tbAmount.Clear();
                 tbCost.Clear();
+
             }
             else
             {
@@ -305,6 +306,11 @@ namespace HouseBudget
                     MessageBox.Show("Proszę podać rodzaj wydatku");
                 }
                 
+            }
+
+            if(diagramyToolStripMenuItem.Enabled == false)
+            {
+                diagramyToolStripMenuItem.Enabled = true;
             }
             
             
@@ -335,7 +341,10 @@ namespace HouseBudget
             {
                 
                 ShowBalance(account1);
+                lblBalanceValue.BackColor = Color.White;
+
                 toolStripMenuItem1.Enabled = false;
+                btnAdd.Enabled = true;
             }
 
             
@@ -383,26 +392,35 @@ namespace HouseBudget
 
         private void showC_Click(object sender, EventArgs e)
         {
-            Button butt = new Button();
-            butt = (Button)sender;
-
-            lblHighest.Text = HighestCost().ToString();
-            lblLowest.Text = LowerCost().ToString();
-            lblAverage.Text = AverageCost().ToString();
-
-            if(panDetails.Visible == false)
+            if(costsList.Count != 0)
             {
-                butt.Text = "Ukryj szczegóły";
-                panDetails.Visible = true;
+
+                Button butt = new Button();
+                butt = (Button)sender;
+
+                lblHighest.Text = HighestCost().ToString();
+                lblLowest.Text = LowerCost().ToString();
+                lblAverage.Text = AverageCost().ToString();
+
+                if (panDetails.Visible == false)
+                {
+                    butt.Text = "Ukryj szczegóły";
+                    panDetails.Visible = true;
+                }
+                else
+                {
+                    butt.Text = "Pokaż szczegóły";
+                    panDetails.Visible = false;
+                }
+
             }
             else
             {
-                butt.Text = "Pokaż szczegóły";
-                panDetails.Visible = false;
+                MessageBox.Show("Nie dodano żadnego wydatku");
             }
-                
 
-            
+
+
         }
 
         private void btnPay_Click(object sender, EventArgs e) //przenoszenie wydatków z list boxa do zapłacenia do list boxa zapłacone
@@ -599,9 +617,18 @@ namespace HouseBudget
                         }
 
                         
+                            
+                        
 
                         
 
+                    }
+
+                    lblBalanceValue.BackColor = Color.White;
+
+                    if (btnAdd.Enabled == false)
+                    {
+                        btnAdd.Enabled = true;
                     }
 
                     data.Close();
@@ -651,15 +678,7 @@ namespace HouseBudget
         }
 
         
-
         
-
-        private void btnkontrolny_Click(object sender, EventArgs e)
-        {
-           
-
-            MessageBox.Show(account.Acc.ToString());
-        }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -667,6 +686,14 @@ namespace HouseBudget
             if(account.ShowDialog() == DialogResult.OK)
             {
                 ShowBalance(account1);
+            }
+        }
+
+        private void wydatkiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(costsList.Count != 0 && diagramyToolStripMenuItem.Enabled == false)
+            {
+                diagramyToolStripMenuItem.Enabled = true;
             }
         }
     }
